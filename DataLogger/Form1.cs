@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DataLogger
+{
+    public partial class Form1 : Form
+    {
+        SerialHandler SerialHandler;
+
+        public Form1()
+        {
+            InitializeComponent();
+            SerialHandler = new SerialHandler();
+            UpdateAvailablePorts();
+        }
+
+        
+
+        private void UpdateAvailablePorts()
+        {
+            ComboBoxSerial.Items.Clear();
+
+            foreach (string availablePort in SerialHandler.GetAvailablePorts())
+                ComboBoxSerial.Items.Add(availablePort);
+        }
+
+        private void buttonRefreshSerial_Click(object sender, EventArgs e)
+        {
+            UpdateAvailablePorts();
+        }
+
+        private void buttonConnectSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string port = ComboBoxSerial.SelectedItem.ToString();
+                SerialHandler.ConnectToSerial(port);
+            } catch (Exception)
+            {
+                MessageBox.Show("Could not connect to serial port!");
+            }
+            
+        }
+
+        private void buttonGetMeasurements_Click(object sender, EventArgs e)
+        {
+
+            Thread thread = new Thread(SerialHandler.ReadMeasurements);
+            thread.Start();
+/*
+            try
+            {
+                
+                SerialHandler.ReadMeasurements();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } */
+            
+        }
+    }
+}
