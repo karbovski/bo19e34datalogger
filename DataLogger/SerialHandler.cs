@@ -29,7 +29,7 @@ namespace DataLogger
         {
             try
             {
-                serialPort.BaudRate = 9600;
+                serialPort.BaudRate = 115200;
                 serialPort.PortName = port;
                 serialPort.Open();
             }
@@ -47,39 +47,43 @@ namespace DataLogger
                 serialPort.WriteLine(command);
         }
 
-        public void ReadMeasurements()
+        public bool ReadMeasurements()
         {
-            
 
+            bool result=true;
+            
             try
             {
                 SendCommand("r#");
                 serialPort.ReadLine();
-            } catch (Exception)
-            {
-                throw new Exception("Check serial connection!");
-            }
-            
-            try
-            {
+
                 using (StreamWriter writer = new StreamWriter("test.txt"))
                 {
                     bool doneCommandDetected = false;
-                    string doneBreakPoint = "#DONE#";
-
+                    string doneBreakPoint = "DONE";
+                    string line;
+                   
                     while (!doneCommandDetected)
                     {
-                        string line = serialPort.ReadLine();
-                        if (!line.Equals(doneBreakPoint))
-                            writer.WriteLine(line);
+                        line = serialPort.ReadLine();
+                        Console.WriteLine(line);
+                        if (!line.Contains(doneBreakPoint))
+                            writer.Write(line);
+                        else
+                        {
+                            doneCommandDetected = true;
+                        }
                     }
+                    
                 }
             }catch (Exception)
             {
-                throw new Exception("Something went wrong while reading data!");
+                Console.WriteLine("Catched");
+                result = false;   
             }
-            
 
+
+            return result;
         }
 
     }
