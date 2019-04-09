@@ -54,7 +54,6 @@ namespace DataLogger
             try
             {
                 SendCommand("r#");
-                serialPort.ReadLine();
             } catch (Exception)
             {
                 throw new Exception("Check serial connection!");
@@ -71,7 +70,7 @@ namespace DataLogger
                     {
                         string line = serialPort.ReadLine();
                         if (!line.Equals(doneBreakPoint))
-                            writer.WriteLine(line);
+                            writer.Write(line);
                     }
                 }
             }catch (Exception)
