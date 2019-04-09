@@ -39,6 +39,7 @@ namespace DataLogger
 
         private void buttonConnectSerial_Click(object sender, EventArgs e)
         {
+            buttonConnectSerial.Enabled = false;
             try
             {
                 string port = ComboBoxSerial.SelectedItem.ToString();
@@ -46,24 +47,35 @@ namespace DataLogger
             } catch (Exception)
             {
                 MessageBox.Show("Could not connect to serial port!");
+                UpdateAvailablePorts();
+                
             }
             
         }
 
-        private void buttonGetMeasurements_Click(object sender, EventArgs e)
+        private async void buttonGetMeasurements_Click(object sender, EventArgs e)
         {
-
-            Thread thread = new Thread(SerialHandler.ReadMeasurements);
-            thread.Start();
-/*
             try
             {
+                buttonGetMeasurements.Enabled = false;
+                Task<bool> measurementsTask = Task.Run(() => SerialHandler.ReadMeasurements());
                 
-                SerialHandler.ReadMeasurements();
-            } catch (Exception ex)
+                await measurementsTask;
+               
+                Console.WriteLine(measurementsTask.Result.ToString());
+            }
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            } */
+                Console.WriteLine(ex.Message);
+            }
+           //Thread thread = new Thread(SerialHandler.ReadMeasurements);
+           //thread.Start();
+      
+        }
+
+        private void ComboBoxSerial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxSerial.SelectedItem != null) buttonConnectSerial.Enabled = true;
             
         }
     }

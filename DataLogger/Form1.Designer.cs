@@ -42,9 +42,11 @@
             this.ComboBoxSerial.Name = "ComboBoxSerial";
             this.ComboBoxSerial.Size = new System.Drawing.Size(121, 21);
             this.ComboBoxSerial.TabIndex = 0;
+            this.ComboBoxSerial.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSerial_SelectedIndexChanged);
             // 
             // buttonConnectSerial
             // 
+            this.buttonConnectSerial.Enabled = false;
             this.buttonConnectSerial.Location = new System.Drawing.Point(139, 29);
             this.buttonConnectSerial.Name = "buttonConnectSerial";
             this.buttonConnectSerial.Size = new System.Drawing.Size(121, 21);
