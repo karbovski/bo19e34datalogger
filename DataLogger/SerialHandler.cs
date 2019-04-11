@@ -50,41 +50,27 @@ namespace DataLogger
 
         public bool ReadMeasurements()
         {
+            List<string> rawDataFromSD = new List<string>();
 
-            bool result=true;
-            
-            try
-            {
-                SendCommand("r#");
-                serialPort.ReadLine();
+            bool doneIsDetected = false;
+            SendCommand("r#");
 
-                using (StreamWriter writer = new StreamWriter("test.txt"))
-                {
-                    bool doneCommandDetected = false;
-                    string doneBreakPoint = "DONE";
-                    string line;
-                   
-                    while (!doneCommandDetected)
-                    {
-                        line = serialPort.ReadLine();
-                        Console.WriteLine(line);
-                        if (!line.Contains(doneBreakPoint))
-                            writer.Write(line);
-                        else
-                        {
-                            doneCommandDetected = true;
-                        }
-                    }
-                    
-                }
-            }catch (Exception)
+            while (!doneIsDetected)
             {
-                Console.WriteLine("Catched");
-                result = false;   
+                string line = serialPort.ReadLine();
+                if (!line.Contains("Done"))
+                    rawDataFromSD.Add(line);
+                else
+                    doneIsDetected = true;
             }
 
-
-            return result;
+            if (rawDataFromSD.Count > 0)
+            {
+                CSVBuilder.BuildCSVFile(Measurement.GenerateMeasurements(rawDataFromSD));
+                return true;
+            }
+            else
+                return false;
         }
 
     }

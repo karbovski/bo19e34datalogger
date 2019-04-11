@@ -9,11 +9,11 @@ namespace DataLogger
 {
     class Measurement
     {
-        private string startDateTime; //DateTime
+        public string startDateTime; //DateTime
         //private DateTime endDateTime;
-        private int interval;
-        private int numberOfIntervals;
-        private List<string> measuredData;
+        public int interval;
+        public int numberOfIntervals;
+        public List<string> measuredData;
 
         public Measurement(string startDateTime,  int interval, int numberOfIntervals, List<string> measuredData)
         {

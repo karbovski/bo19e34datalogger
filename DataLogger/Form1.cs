@@ -77,6 +77,7 @@ namespace DataLogger
                 await measurementsTask;
                
                 Console.WriteLine(measurementsTask.Result.ToString());
+                MessageBox.Show("OK!");
             }
             catch(Exception ex)
             {
