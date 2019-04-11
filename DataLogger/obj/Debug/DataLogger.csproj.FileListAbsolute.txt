@@ -18,3 +18,13 @@ C:\Users\Eier\Documents\GitHub\bo19e34\bo19e34datalogger\DataLogger\obj\Debug\Da
 C:\Users\Eier\Documents\GitHub\bo19e34\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csproj.CoreCompileInputs.cache
 C:\Users\Eier\Documents\GitHub\bo19e34\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.exe
 C:\Users\Eier\Documents\GitHub\bo19e34\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.pdb
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\bin\Debug\DataLogger.exe.config
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\bin\Debug\DataLogger.exe
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\bin\Debug\DataLogger.pdb
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csprojAssemblyReference.cache
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.Form1.resources
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.Properties.Resources.resources
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csproj.GenerateResource.cache
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csproj.CoreCompileInputs.cache
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.exe
+C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.pdb

@@ -13,22 +13,35 @@ namespace DataLogger
 {
     public partial class Form1 : Form
     {
-        SerialHandler SerialHandler;
+        SerialHandler serialHandler;
 
         public Form1()
         {
             InitializeComponent();
-            SerialHandler = new SerialHandler();
+            serialHandler = new SerialHandler();
             UpdateAvailablePorts();
+            DisableFeaturesButtons();
         }
 
-        
+        private void EnableFeaturesButtons()
+        {
+            buttonEraseData.Enabled = true;
+            buttonSyncClock.Enabled = true;
+            buttonGetMeasurements.Enabled = true;
+        }
+
+        private void DisableFeaturesButtons()
+        {
+            buttonEraseData.Enabled = false;
+            buttonSyncClock.Enabled = false;
+            buttonGetMeasurements.Enabled = false;
+        }
 
         private void UpdateAvailablePorts()
         {
             ComboBoxSerial.Items.Clear();
 
-            foreach (string availablePort in SerialHandler.GetAvailablePorts())
+            foreach (string availablePort in serialHandler.GetAvailablePorts())
                 ComboBoxSerial.Items.Add(availablePort);
         }
 
@@ -43,12 +56,13 @@ namespace DataLogger
             try
             {
                 string port = ComboBoxSerial.SelectedItem.ToString();
-                SerialHandler.ConnectToSerial(port);
+                serialHandler.ConnectToSerial(port);
+                EnableFeaturesButtons();
+                MessageBox.Show("Succesfully connected to " + port);
             } catch (Exception)
             {
                 MessageBox.Show("Could not connect to serial port!");
-                UpdateAvailablePorts();
-                
+                UpdateAvailablePorts();    
             }
             
         }
@@ -58,7 +72,7 @@ namespace DataLogger
             try
             {
                 buttonGetMeasurements.Enabled = false;
-                Task<bool> measurementsTask = Task.Run(() => SerialHandler.ReadMeasurements());
+                Task<bool> measurementsTask = Task.Run(() => serialHandler.ReadMeasurements());
                 
                 await measurementsTask;
                
@@ -76,6 +90,40 @@ namespace DataLogger
         private void ComboBoxSerial_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ComboBoxSerial.SelectedItem != null) buttonConnectSerial.Enabled = true;
+            
+        }
+
+        private void ButtonSyncClock_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (serialHandler.serialPort.IsOpen == true)
+                {
+                    GeigerHandler.SyncClockOnArduino(serialHandler);
+                    MessageBox.Show("Clock has been succesfully synchronized!");
+                } else
+                {
+                    DisableFeaturesButtons();
+                    UpdateAvailablePorts();
+                }
+                
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void ButtonEraseData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GeigerHandler.EraseSDCard(serialHandler);
+                MessageBox.Show("SD Card succesfully erased!");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
         }
     }

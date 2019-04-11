@@ -10,7 +10,7 @@ namespace DataLogger
 {
     public class SerialHandler
     {
-        static SerialPort serialPort = new SerialPort();
+        public SerialPort serialPort = new SerialPort();
 
         public SerialHandler()
         {
