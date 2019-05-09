@@ -25,7 +25,6 @@ namespace DataLogger
                 }
                 File.WriteAllText(filePath, csv.ToString());
             }
-
         }
     }
 }

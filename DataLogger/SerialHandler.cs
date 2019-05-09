@@ -18,13 +18,10 @@ namespace DataLogger
 
         }
 
-        // update ports
         public string[] GetAvailablePorts()
         {
             return SerialPort.GetPortNames();
         }
-
-        // connect to port
 
         public void ConnectToSerial(string port)
         {
@@ -38,10 +35,8 @@ namespace DataLogger
             {
                 throw new Exception();
             }
-
         }
 
-        // send command 
         public void SendCommand(string command)
         {
             if (serialPort.IsOpen)
@@ -72,6 +67,5 @@ namespace DataLogger
             else
                 return false;
         }
-
     }
 }

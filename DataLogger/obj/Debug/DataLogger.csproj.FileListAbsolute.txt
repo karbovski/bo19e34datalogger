@@ -28,3 +28,13 @@ C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.cs
 C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csproj.CoreCompileInputs.cache
 C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.exe
 C:\Users\karbo\source\repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.pdb
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.exe
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.pdb
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\bin\Debug\DataLogger.exe.config
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\bin\Debug\DataLogger.exe
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\bin\Debug\DataLogger.pdb
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csprojAssemblyReference.cache
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.Form1.resources
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.Properties.Resources.resources
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csproj.GenerateResource.cache
+C:\Users\nzxt\Source\Repos\bo19e34datalogger\DataLogger\obj\Debug\DataLogger.csproj.CoreCompileInputs.cache

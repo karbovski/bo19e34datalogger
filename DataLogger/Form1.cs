@@ -63,8 +63,7 @@ namespace DataLogger
             {
                 MessageBox.Show("Could not connect to serial port!");
                 UpdateAvailablePorts();    
-            }
-            
+            }  
         }
 
         private async void buttonGetMeasurements_Click(object sender, EventArgs e)
@@ -83,15 +82,11 @@ namespace DataLogger
             {
                 Console.WriteLine(ex.Message);
             }
-           //Thread thread = new Thread(SerialHandler.ReadMeasurements);
-           //thread.Start();
-      
         }
 
         private void ComboBoxSerial_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ComboBoxSerial.SelectedItem != null) buttonConnectSerial.Enabled = true;
-            
+            if (ComboBoxSerial.SelectedItem != null) buttonConnectSerial.Enabled = true; 
         }
 
         private void ButtonSyncClock_Click(object sender, EventArgs e)
@@ -111,8 +106,7 @@ namespace DataLogger
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }    
         }
 
         private void ButtonEraseData_Click(object sender, EventArgs e)
@@ -125,7 +119,6 @@ namespace DataLogger
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
     }
 }

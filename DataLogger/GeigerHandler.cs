@@ -20,8 +20,5 @@ namespace DataLogger
         }
 
         // configure geiger counter (interval, number of intervals)
-
-        // erase SD card
-
     }
 }
