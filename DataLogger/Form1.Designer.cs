@@ -36,12 +36,12 @@
             this.buttonGetMeasurements = new System.Windows.Forms.Button();
             this.buttonSyncClock = new System.Windows.Forms.Button();
             this.buttonEraseData = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelConfiguration = new System.Windows.Forms.Label();
+            this.comboBoxInterval = new System.Windows.Forms.ComboBox();
+            this.labelInterval = new System.Windows.Forms.Label();
+            this.labelNumber = new System.Windows.Forms.Label();
+            this.comboBoxNumber = new System.Windows.Forms.ComboBox();
+            this.buttonUpdateConfig = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ComboBoxSerial
@@ -114,69 +114,70 @@
             this.buttonEraseData.UseVisualStyleBackColor = true;
             this.buttonEraseData.Click += new System.EventHandler(this.ButtonEraseData_Click);
             // 
-            // label2
+            // labelConfiguration
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 180);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Configuration";
+            this.labelConfiguration.AutoSize = true;
+            this.labelConfiguration.Location = new System.Drawing.Point(12, 180);
+            this.labelConfiguration.Name = "labelConfiguration";
+            this.labelConfiguration.Size = new System.Drawing.Size(69, 13);
+            this.labelConfiguration.TabIndex = 7;
+            this.labelConfiguration.Text = "Configuration";
             // 
-            // comboBox1
+            // comboBoxInterval
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(116, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 21);
-            this.comboBox1.TabIndex = 8;
+            this.comboBoxInterval.FormattingEnabled = true;
+            this.comboBoxInterval.Location = new System.Drawing.Point(116, 200);
+            this.comboBoxInterval.Name = "comboBoxInterval";
+            this.comboBoxInterval.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxInterval.TabIndex = 8;
             // 
-            // label3
+            // labelInterval
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 203);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Interval length";
+            this.labelInterval.AutoSize = true;
+            this.labelInterval.Location = new System.Drawing.Point(12, 203);
+            this.labelInterval.Name = "labelInterval";
+            this.labelInterval.Size = new System.Drawing.Size(74, 13);
+            this.labelInterval.TabIndex = 9;
+            this.labelInterval.Text = "Interval length";
             // 
-            // label4
+            // labelNumber
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 230);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Number of intervals";
+            this.labelNumber.AutoSize = true;
+            this.labelNumber.Location = new System.Drawing.Point(12, 230);
+            this.labelNumber.Name = "labelNumber";
+            this.labelNumber.Size = new System.Drawing.Size(98, 13);
+            this.labelNumber.TabIndex = 10;
+            this.labelNumber.Text = "Number of intervals";
             // 
-            // comboBox2
+            // comboBoxNumber
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(116, 227);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 21);
-            this.comboBox2.TabIndex = 11;
+            this.comboBoxNumber.FormattingEnabled = true;
+            this.comboBoxNumber.Location = new System.Drawing.Point(116, 227);
+            this.comboBoxNumber.Name = "comboBoxNumber";
+            this.comboBoxNumber.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxNumber.TabIndex = 11;
             // 
-            // button1
+            // buttonUpdateConfig
             // 
-            this.button1.Location = new System.Drawing.Point(12, 254);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(248, 28);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Update configuration";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonUpdateConfig.Location = new System.Drawing.Point(12, 254);
+            this.buttonUpdateConfig.Name = "buttonUpdateConfig";
+            this.buttonUpdateConfig.Size = new System.Drawing.Size(248, 28);
+            this.buttonUpdateConfig.TabIndex = 12;
+            this.buttonUpdateConfig.Text = "Update configuration";
+            this.buttonUpdateConfig.UseVisualStyleBackColor = true;
+            this.buttonUpdateConfig.Click += new System.EventHandler(this.ButtonUpdateConfig_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(274, 439);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonUpdateConfig);
+            this.Controls.Add(this.comboBoxNumber);
+            this.Controls.Add(this.labelNumber);
+            this.Controls.Add(this.labelInterval);
+            this.Controls.Add(this.comboBoxInterval);
+            this.Controls.Add(this.labelConfiguration);
             this.Controls.Add(this.buttonEraseData);
             this.Controls.Add(this.buttonSyncClock);
             this.Controls.Add(this.buttonGetMeasurements);
@@ -204,12 +205,12 @@
         private System.Windows.Forms.Button buttonGetMeasurements;
         private System.Windows.Forms.Button buttonSyncClock;
         private System.Windows.Forms.Button buttonEraseData;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelConfiguration;
+        private System.Windows.Forms.ComboBox comboBoxInterval;
+        private System.Windows.Forms.Label labelInterval;
+        private System.Windows.Forms.Label labelNumber;
+        private System.Windows.Forms.ComboBox comboBoxNumber;
+        private System.Windows.Forms.Button buttonUpdateConfig;
     }
 }
 

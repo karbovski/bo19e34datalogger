@@ -21,6 +21,13 @@ namespace DataLogger
             serialHandler = new SerialHandler();
             UpdateAvailablePorts();
             DisableFeaturesButtons();
+            comboBoxInterval.Items.Add("60000");
+            comboBoxNumber.Items.Add("00010");
+            comboBoxNumber.Items.Add("00060");
+            comboBoxNumber.Items.Add("00120");
+            comboBoxNumber.Items.Add("00480");
+            comboBoxNumber.Items.Add("01440");
+            comboBoxNumber.Items.Add("60000");
         }
 
         private void EnableFeaturesButtons()
@@ -28,6 +35,13 @@ namespace DataLogger
             buttonEraseData.Enabled = true;
             buttonSyncClock.Enabled = true;
             buttonGetMeasurements.Enabled = true;
+
+            buttonUpdateConfig.Enabled = true;
+            labelConfiguration.Enabled = true;
+            labelInterval.Enabled = true;
+            labelNumber.Enabled = true;
+            comboBoxInterval.Enabled = true;
+            comboBoxNumber.Enabled = true;
         }
 
         private void DisableFeaturesButtons()
@@ -35,6 +49,13 @@ namespace DataLogger
             buttonEraseData.Enabled = false;
             buttonSyncClock.Enabled = false;
             buttonGetMeasurements.Enabled = false;
+
+            buttonUpdateConfig.Enabled = false;
+            labelConfiguration.Enabled = false;
+            labelInterval.Enabled = false;
+            labelNumber.Enabled = false;
+            comboBoxInterval.Enabled = false;
+            comboBoxNumber.Enabled = false;
         }
 
         private void UpdateAvailablePorts()
@@ -118,6 +139,27 @@ namespace DataLogger
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ButtonUpdateConfig_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((comboBoxInterval.SelectedIndex > -1) && (comboBoxNumber.SelectedIndex > -1))
+                {
+                    GeigerHandler.ConfigureGeiger(serialHandler, comboBoxInterval.SelectedItem.ToString(), comboBoxNumber.SelectedItem.ToString());
+                    MessageBox.Show("Geiger succesfully configured!");
+                }
+                else
+                {
+                    MessageBox.Show("Error! You need to choose configuration parameters before update");
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("Could not configure counter!");
             }
         }
     }
