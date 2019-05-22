@@ -21,6 +21,30 @@ namespace DataLogger
             serialHandler = new SerialHandler();
             UpdateAvailablePorts();
             DisableFeaturesButtons();
+            SetUpComboBoxes();
+        }
+
+        private void SetUpComboBoxes()
+        {
+            comboBoxIntervalLength.Items.Add("10 sec");
+            comboBoxIntervalLength.Items.Add("20 sec");
+            comboBoxIntervalLength.Items.Add("30 sec");
+            comboBoxIntervalLength.Items.Add("40 sec");
+            comboBoxIntervalLength.Items.Add("50 sec");
+            comboBoxIntervalLength.Items.Add("60 sec");
+
+            comboBoxNumberOfIntervals.Items.Add("1 min");
+            comboBoxNumberOfIntervals.Items.Add("5 min");
+            comboBoxNumberOfIntervals.Items.Add("10 min");
+            comboBoxNumberOfIntervals.Items.Add("30 min");
+            comboBoxNumberOfIntervals.Items.Add("1 hour");
+            comboBoxNumberOfIntervals.Items.Add("4 hour");
+            comboBoxNumberOfIntervals.Items.Add("8 hour");
+            comboBoxNumberOfIntervals.Items.Add("16 hour");
+            comboBoxNumberOfIntervals.Items.Add("24 hour");
+            comboBoxNumberOfIntervals.Items.Add("48 hour");
+            comboBoxNumberOfIntervals.Items.Add("72 hour");
+            comboBoxNumberOfIntervals.Items.Add("continuous");
         }
 
         private void EnableFeaturesButtons()

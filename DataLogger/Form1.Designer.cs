@@ -37,10 +37,10 @@
             this.buttonSyncClock = new System.Windows.Forms.Button();
             this.buttonEraseData = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxIntervalLength = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxNumberOfIntervals = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -123,13 +123,13 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Configuration";
             // 
-            // comboBox1
+            // comboBoxIntervalLength
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(116, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 21);
-            this.comboBox1.TabIndex = 8;
+            this.comboBoxIntervalLength.FormattingEnabled = true;
+            this.comboBoxIntervalLength.Location = new System.Drawing.Point(116, 200);
+            this.comboBoxIntervalLength.Name = "comboBoxIntervalLength";
+            this.comboBoxIntervalLength.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxIntervalLength.TabIndex = 8;
             // 
             // label3
             // 
@@ -149,13 +149,13 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Number of intervals";
             // 
-            // comboBox2
+            // comboBoxNumberOfIntervals
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(116, 227);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 21);
-            this.comboBox2.TabIndex = 11;
+            this.comboBoxNumberOfIntervals.FormattingEnabled = true;
+            this.comboBoxNumberOfIntervals.Location = new System.Drawing.Point(116, 227);
+            this.comboBoxNumberOfIntervals.Name = "comboBoxNumberOfIntervals";
+            this.comboBoxNumberOfIntervals.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxNumberOfIntervals.TabIndex = 11;
             // 
             // button1
             // 
@@ -170,12 +170,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 439);
+            this.ClientSize = new System.Drawing.Size(274, 301);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxNumberOfIntervals);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxIntervalLength);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonEraseData);
             this.Controls.Add(this.buttonSyncClock);
@@ -186,7 +186,9 @@
             this.Controls.Add(this.ComboBoxSerial);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(290, 340);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(290, 340);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BO19-E34 Geiger datalogger";
@@ -205,10 +207,10 @@
         private System.Windows.Forms.Button buttonSyncClock;
         private System.Windows.Forms.Button buttonEraseData;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxIntervalLength;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxNumberOfIntervals;
         private System.Windows.Forms.Button button1;
     }
 }
