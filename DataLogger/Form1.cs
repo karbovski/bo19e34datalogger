@@ -21,30 +21,13 @@ namespace DataLogger
             serialHandler = new SerialHandler();
             UpdateAvailablePorts();
             DisableFeaturesButtons();
-            SetUpComboBoxes();
-        }
-
-        private void SetUpComboBoxes()
-        {
-            comboBoxIntervalLength.Items.Add("10 sec");
-            comboBoxIntervalLength.Items.Add("20 sec");
-            comboBoxIntervalLength.Items.Add("30 sec");
-            comboBoxIntervalLength.Items.Add("40 sec");
-            comboBoxIntervalLength.Items.Add("50 sec");
-            comboBoxIntervalLength.Items.Add("60 sec");
-
-            comboBoxNumberOfIntervals.Items.Add("1 min");
-            comboBoxNumberOfIntervals.Items.Add("5 min");
-            comboBoxNumberOfIntervals.Items.Add("10 min");
-            comboBoxNumberOfIntervals.Items.Add("30 min");
-            comboBoxNumberOfIntervals.Items.Add("1 hour");
-            comboBoxNumberOfIntervals.Items.Add("4 hour");
-            comboBoxNumberOfIntervals.Items.Add("8 hour");
-            comboBoxNumberOfIntervals.Items.Add("16 hour");
-            comboBoxNumberOfIntervals.Items.Add("24 hour");
-            comboBoxNumberOfIntervals.Items.Add("48 hour");
-            comboBoxNumberOfIntervals.Items.Add("72 hour");
-            comboBoxNumberOfIntervals.Items.Add("continuous");
+            comboBoxInterval.Items.Add("60000");
+            comboBoxNumber.Items.Add("00010");
+            comboBoxNumber.Items.Add("00060");
+            comboBoxNumber.Items.Add("00120");
+            comboBoxNumber.Items.Add("00480");
+            comboBoxNumber.Items.Add("01440");
+            comboBoxNumber.Items.Add("60000");
         }
 
         private void EnableFeaturesButtons()
@@ -52,6 +35,13 @@ namespace DataLogger
             buttonEraseData.Enabled = true;
             buttonSyncClock.Enabled = true;
             buttonGetMeasurements.Enabled = true;
+
+            buttonUpdateConfig.Enabled = true;
+            labelConfiguration.Enabled = true;
+            labelInterval.Enabled = true;
+            labelNumber.Enabled = true;
+            comboBoxInterval.Enabled = true;
+            comboBoxNumber.Enabled = true;
         }
 
         private void DisableFeaturesButtons()
@@ -59,6 +49,13 @@ namespace DataLogger
             buttonEraseData.Enabled = false;
             buttonSyncClock.Enabled = false;
             buttonGetMeasurements.Enabled = false;
+
+            buttonUpdateConfig.Enabled = false;
+            labelConfiguration.Enabled = false;
+            labelInterval.Enabled = false;
+            labelNumber.Enabled = false;
+            comboBoxInterval.Enabled = false;
+            comboBoxNumber.Enabled = false;
         }
 
         private void UpdateAvailablePorts()
@@ -87,8 +84,7 @@ namespace DataLogger
             {
                 MessageBox.Show("Could not connect to serial port!");
                 UpdateAvailablePorts();    
-            }
-            
+            }  
         }
 
         private async void buttonGetMeasurements_Click(object sender, EventArgs e)
@@ -107,15 +103,11 @@ namespace DataLogger
             {
                 Console.WriteLine(ex.Message);
             }
-           //Thread thread = new Thread(SerialHandler.ReadMeasurements);
-           //thread.Start();
-      
         }
 
         private void ComboBoxSerial_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ComboBoxSerial.SelectedItem != null) buttonConnectSerial.Enabled = true;
-            
+            if (ComboBoxSerial.SelectedItem != null) buttonConnectSerial.Enabled = true; 
         }
 
         private void ButtonSyncClock_Click(object sender, EventArgs e)
@@ -135,8 +127,7 @@ namespace DataLogger
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }    
         }
 
         private void ButtonEraseData_Click(object sender, EventArgs e)
@@ -149,7 +140,27 @@ namespace DataLogger
             {
                 MessageBox.Show(ex.Message);
             }
-            
+        }
+
+        private void ButtonUpdateConfig_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((comboBoxInterval.SelectedIndex > -1) && (comboBoxNumber.SelectedIndex > -1))
+                {
+                    GeigerHandler.ConfigureGeiger(serialHandler, comboBoxInterval.SelectedItem.ToString(), comboBoxNumber.SelectedItem.ToString());
+                    MessageBox.Show("Geiger succesfully configured!");
+                }
+                else
+                {
+                    MessageBox.Show("Error! You need to choose configuration parameters before update");
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("Could not configure counter!");
+            }
         }
     }
 }
